@@ -1,0 +1,94 @@
+#  a function that takes two vectors of the same length 
+#  returns the number of positions that have an NA in both vectors. 
+
+both_na <- function(x,y){
+  na_pos_y<- which(is.na(y))
+  na_pos_x<- which(is.na(x))
+  cat("Number of position that have an NA in vector x is:",na_pos_x,"\n",
+      "Number of position that have an NA in vector y is:",na_pos_y)
+  }
+
+## function 1
+# Vectors to test the function --------------------------------------------
+set.seed(10)
+x <- sample(c(rep(NA,5), 1:10), size= 20, replace= TRUE)
+x
+
+y <- sample(c(rep(NA, 5), 11:20), size = 20, replace = TRUE)
+y
+
+# Call the function -------------------------------------------------------
+
+both_na(x,y)
+
+## function 2
+# code snippets into a function ------------------------
+x<- 1:10
+mean(is.na(x)) # mean for NA variables
+x/ sum(x, na.rm= TRUE) 
+sd(x, na.rm= TRUE)/ mean(x, na.rm= TRUE)
+
+# -- ----------------------------------------------------------------------
+
+
+# function that calculate above chunks of codes ---------------------------
+
+chunks_func <- function(x){
+  na_avail<- is.na(x)
+  mean_na<- mean(na_avail)
+  vec_by_sum<- x/sum(x, na.rm = TRUE)
+  coef_of_var<- sd(x, na.rm= TRUE)/ mean(x, na.rm= TRUE)
+  paste0("mean of missing values is:",mean_na,"A Vector divided by its sum is: ", vec_by_sum," Coefficient of Variation is: ", coef_of_var)
+}
+
+
+# calling the function ----------------------------------------------------
+
+x<- c(1:10, NA)
+chunks_func(x=x)
+
+function 3
+
+
+# greeting function -------------------------------------------------------
+
+
+greeting_function<- function(time=lubridate::now(),period){
+  if(period=="morning"){
+    print("Good Morning")
+  } else if(period=="afternoon"){
+    print("Good Afternoon")
+  }else{
+    period=="evening"
+    print("Good Evening")
+  }
+}
+
+# calling the function ----------------------------------------------------
+
+
+greeting_function(period="evening")
+
+## function 4
+# fizzbuzz function.  -----------------------------------------------------
+#It takes a single number as input. 
+# If the number is divisible by three, it returns “fizz”. 
+# If it’s divisible by five it returns “buzz”. 
+# If it’s divisible by three and five, it returns “fizzbuzz”. 
+# Otherwise, it returns the number. 
+fizzbuzz<- function(x){
+  if(x%%3==0){
+    print("fizz")
+  }else if(x%%5==0){
+    print("buzz")
+  }else if(x%%3==0&&x%%5==0){
+    print("fizzbuzz")
+  }else{
+    print(x)
+  }
+}
+
+# check the function ------------------------------------------------------
+
+fizzbuzz(15)
+
